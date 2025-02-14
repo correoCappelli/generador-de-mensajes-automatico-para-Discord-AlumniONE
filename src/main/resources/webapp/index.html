@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mensaje Panel</title>
+</head>
+<body>
+<h1>Mensajes</h1>
+<div id="mensaje-container"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      fetch('http://localhost:8080/api/panelweb')
+          .then(response => response.json())
+          .then(data => {
+              const mensajeContainer = document.getElementById('mensaje-container');
+              data.forEach(mensaje => {
+                  const mensajeElement = document.createElement('p');
+                  mensajeElement.textContent = mensaje.texto;
+                  mensajeContainer.appendChild(mensajeElement);
+              });
+          })
+          .catch(error => console.error('Error:', error));
+  });
+</script>
+</body>
+</html>

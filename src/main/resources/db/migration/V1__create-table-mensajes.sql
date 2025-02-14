@@ -1,0 +1,5 @@
+CREATE TABLE mensajes (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    texto VARCHAR(255) NOT NULL,
+    fechaYHora DATETIME
+);
